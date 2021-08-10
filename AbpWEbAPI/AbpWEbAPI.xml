@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AbpWEbAPI</name>
+    </assembly>
+    <members>
+        <member name="M:AbpWEbAPI.Controllers.WeatherForecastController.Get">
+            <summary>
+            这是一个注释
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
