@@ -6,22 +6,25 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
-using Volo.Abp.AspNetCore.Serilog;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
+using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
-using Volo.Abp.EventBus;
-using Volo.Abp.Identity.Web;
 using Volo.Abp.Modularity;
+using Volo.Abp.Swashbuckle;
 
 namespace AbpWEbAPI
 {
     [DependsOn(typeof(AbpAspNetCoreMvcModule)
     ,typeof(EFCoreModule)
     , typeof(AbpAutofacModule)
+    ,typeof(AbpSwashbuckleModule)
     )]
     public class APIMoudel:AbpModule
     {
+
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            
             var services = context.Services;
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -32,6 +35,13 @@ namespace AbpWEbAPI
                 //如果在配置生成xml注释是报错，可以在生成里面添加忽略错误代码
                 c.IncludeXmlComments(psth);//添加注释描述
             });
+            Configure<AbpAntiForgeryOptions>(opt =>
+            {
+                //https://docs.abp.io/en/abp/latest/CSRF-Anti-Forgery#the-solution
+                //禁用掉abp默认的自动防伪验证，详细查看abp：CSRF/XSRF页面
+                opt.AutoValidate = false;
+            });
+
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)

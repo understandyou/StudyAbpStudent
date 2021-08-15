@@ -23,24 +23,24 @@ namespace EFCore
         {
             new List<Teacher>()
             {
-                new Teacher(-1){TeachName = "张老师"}
-                ,new Teacher(-1){TeachName = "杨老师"}
-                ,new Teacher(-1){TeachName = "李老师"}
+                 new Teacher(){TeachName = "张老师"}
+                ,new Teacher(){TeachName = "杨老师"}
+                ,new Teacher(){TeachName = "李老师"}
             }.ForEach(async (o)=> await _teachersRepository.InsertAsync(o));
             new List<Student>()
             {
-                new  Student(-1){StuNo = "111",TeacherNo = 1,UserName = "小明"}
-                ,new Student(-1){StuNo = "222",TeacherNo = 2,UserName = "张三"}
-                ,new Student(-1){StuNo = "333",TeacherNo = 2,UserName = "王五"}
-                ,new Student(-1){StuNo = "444",TeacherNo = 3,UserName = "李四"}
+                new  Student(){StuNo = "111",TeacherNo = 1,UserName = "小明"}
+                ,new Student(){StuNo = "222",TeacherNo = 2,UserName = "张三"}
+                ,new Student(){StuNo = "333",TeacherNo = 2,UserName = "王五"}
+                ,new Student(){StuNo = "444",TeacherNo = 3,UserName = "李四"}
             }.ForEach(async (o) => await _stuRepository.InsertAsync(o)); ;
             new List<StuResult>()
             {
-                 new StuResult(-1){chengji = (decimal) 12.4,KeCheng = "语文",StuId = 1}
-                ,new StuResult(-1){chengji = (decimal) 149.4,KeCheng = "数学",StuId = 1}
-                ,new StuResult(-1){chengji = (decimal) 126.4,KeCheng = "语文",StuId = 2}
-                ,new StuResult(-1){chengji = (decimal) 128.4,KeCheng = "语文",StuId = 3}
-                ,new StuResult(-1){chengji = (decimal) 127.4,KeCheng = "语文",StuId = 4}
+                 new StuResult(){chengji = (decimal) 12.4,KeCheng = "语文",StuId = 1}
+                ,new StuResult(){chengji = (decimal) 149.4,KeCheng = "数学",StuId = 1}
+                ,new StuResult(){chengji = (decimal) 126.4,KeCheng = "语文",StuId = 2}
+                ,new StuResult(){chengji = (decimal) 128.4,KeCheng = "语文",StuId = 3}
+                ,new StuResult(){chengji = (decimal) 127.4,KeCheng = "语文",StuId = 4}
             }.ForEach(async (o) => await _resultRepository.InsertAsync(o)); ;
 
             return null;

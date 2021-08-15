@@ -6,15 +6,7 @@ namespace Domain.School
 {
     public class Teacher:Entity<int>
     {
-        public Teacher()
-        {
-            
-        }
-
-        public Teacher(int Id):base(Id)
-        {
-            
-        }
+    
         [MaxLength(10)]
         public string TeachName { get; set; }
     }

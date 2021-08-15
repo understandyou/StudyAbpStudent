@@ -6,15 +6,7 @@ namespace Domain.School
 {
     public class StuResult:Entity<int>
     {
-        public StuResult()
-        {
-            
-        }
-
-        public StuResult(int id):base(id)
-        {
-            
-        }
+   
         public int StuId { get; set; }
         public decimal chengji { get; set; }
         [MaxLength(10)]

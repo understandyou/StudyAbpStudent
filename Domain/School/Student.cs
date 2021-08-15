@@ -7,15 +7,7 @@ namespace Domain.School
 {
     public class Student:Entity<int>
     {
-        public Student()
-        {
-            
-        }
-
-        public Student(int id):base(id)
-        {
-            
-        }
+     
         [MaxLength(100)]
         public string UserName { get; set; }
         [MaxLength(50)]
